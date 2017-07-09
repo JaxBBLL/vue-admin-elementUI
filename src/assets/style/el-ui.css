@@ -1,0 +1,24 @@
+.el-menu {
+    background-color: #324157;
+    border-radius: 0px;
+}
+
+.el-submenu .el-menu-item {
+    height: 40px;
+    line-height: 40px;
+}
+.el-submenu .el-menu {
+	background-color: #1f2d3d;
+}
+.el-menu-item,
+.el-submenu__title {
+    height: 40px;
+    line-height: 40px;
+    color:#bfcbd9;
+}
+.el-submenu .el-menu-item:hover, .el-submenu__title:hover {
+	background-color: #48576a;
+}
+.el-submenu [class^=fa] {
+	margin-right: 6px;
+}
