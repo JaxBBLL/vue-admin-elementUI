@@ -6,9 +6,14 @@ import './assets/style/reset.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import './assets/style/el-ui.css'
-import App from './App'
+import './mock/index.js';
+import App from './App';
+
+import ajax from './common/ajax.js'
 
 Vue.use(ElementUI)
+
+Vue.prototype.$ajax = ajax;
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */
