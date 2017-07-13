@@ -4,7 +4,8 @@ import Vue from 'vue'
 import router from './router'
 import './assets/style/reset.css'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
+// import 'element-ui/lib/theme-default/index.css'
+import './assets/theme/theme/index.css'
 import './assets/style/el-ui.css'
 import './mock/index.js';
 import App from './App';
