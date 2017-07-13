@@ -28,7 +28,7 @@ const registerRoute = (navConfig) => {
     return {
       path: nav.path || '',
       name: nav.title || nav.name,
-      component: require(`../components${nav.page}`),
+      component: require(`../views${nav.page}`),
       meta: {
         title: nav.title || nav.name,
         parentName: nav.parent

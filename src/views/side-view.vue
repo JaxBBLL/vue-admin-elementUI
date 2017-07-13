@@ -1,11 +1,10 @@
 <template>
-  <div class="app-wrapper" :class="{'hide-sidebar':!isOpened}">
-    <div class="sidebar-wrapper">
+	<div class="sidebar-wrapper">
       <div class="logo">
         <span>{{title}}</span>
       </div>
       <div class="menu-wrapper">
-        <el-menu v-if="isOpened" unique-opened>
+        <el-menu v-if="!collapse" unique-opened>
           <el-submenu :index="index+''" v-for="(item,index) in menus" :key="index">
             <template slot="title"><i class="fa fa-home fa-lg"></i>{{item.name}}</template>
             <el-menu-item :key="child.id" :index="child.id+''" v-for="child in item.children">
@@ -13,7 +12,7 @@
             </el-menu-item>
           </el-submenu>
         </el-menu>
-        <ul class="el-menu" v-if="!isOpened">
+        <ul class="el-menu" v-if="collapse">
           <li class="el-submenu parent-menu" v-for="(item,index) in menus">
             <template>
               <div class="el-submenu__title"><i class="fa fa-home fa-lg"></i></div>
@@ -25,41 +24,14 @@
             </template>
           </li>
         </ul>
-        <i class="collapse-arrow fa fa-2x" :class="{'fa-arrow-circle-right':!isOpened,'fa-arrow-circle-left':isOpened}" @click="collapse"></i>
+        <i class="collapse-arrow fa fa-2x" :class="{'fa-arrow-circle-right':collapse,'fa-arrow-circle-left':!collapse}" @click="toggleCollapse"></i>
       </div>
     </div>
-    <div class="main-container">
-      <div class="main-header">
-        <div class="main-header-user">
-          <el-dropdown>
-            <span class="el-dropdown-link">
-				    Peter<i class="el-icon-caret-bottom el-icon--right"></i>
-				  </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>退出</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </div>
-      </div>
-      <div class="main-body">
-        <el-row v-if="$route.path !== '/home'">
-          <el-breadcrumb class="breadcrumb" separator="/">
-            <el-breadcrumb-item :key="key+''" v-for="(item,key) in $route.matched">{{ item.name }}</el-breadcrumb-item>
-          </el-breadcrumb>
-        </el-row>
-        <transition name="fade" mode="out-in">
-          <router-view></router-view>
-        </transition>
-      </div>
-    </div>
-  </div>
 </template>
 <script>
-export default {
-  name: 'index',
+	export default {
   data() {
     return {
-      isOpened: true,
       title: '管理后台',
       menus: [{
         id: 1,
@@ -98,24 +70,17 @@ export default {
     }
   },
   computed: {
-    sidebar() {
-      return true
+    collapse() {
+      return this.$store.state.collapsed
     }
   },
   mounted() {
-    console.log(this.$route)
+    console.log('store...', this.$store)
   },
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath)
-    },
-    collapse() {
-      console.log(this.isOpened)
-      this.isOpened = !this.isOpened
-      if (this.isOpened) {
+    toggleCollapse() {
+      this.$store.commit('toggleCollapse')
+      if (!this.collapse) {
         this.title = '管理后台'
       } else {
         this.title = '管'
@@ -263,5 +228,11 @@ export default {
 .el-menu-item a.router-link-exact-active.router-link-active,
 .son-menu-item a.router-link-exact-active.router-link-active {
   color: #20a0ff;
+}
+.bread {
+  margin-bottom: 10px;
+  border: 1px solid #e3e3e3;
+  padding:10px;
+  border-radius: 3px;
 }
 </style>
