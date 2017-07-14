@@ -27,11 +27,11 @@ const registerRoute = (navConfig) => {
   function buildRoute(nav) {
     return {
       path: nav.path || '',
-      name: nav.title || nav.name,
+      name: nav.name,
       component: require(`../views${nav.page}`),
       meta: {
-        title: nav.title || nav.name,
-        parentName: nav.parent
+        title: nav.name,
+        bread: nav.bread
       }
     }
   }

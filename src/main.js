@@ -15,9 +15,8 @@ import filters from './filters'
 
 Vue.use(ElementUI)
 Vue.use(filters)
-
 Vue.prototype.$ajax = ajax;
-console.log('store', store)
+
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
