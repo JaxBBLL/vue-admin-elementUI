@@ -18,9 +18,10 @@
             <el-breadcrumb-item :key="key+''" v-for="(item,key) in $route.matched">{{ item.name }}</el-breadcrumb-item>
           </el-breadcrumb>
         </el-row>
-        <transition name="fade" mode="out-in">
+        <transition enter-active-class="animated slideInLeft" leave-active-class="animated slideOutRight">
           <router-view></router-view>
         </transition>
       </div>
     </div>
 </template>
+
