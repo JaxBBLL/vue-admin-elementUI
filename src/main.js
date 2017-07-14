@@ -11,8 +11,10 @@ import './mock/index.js';
 import App from './App';
 import store from './store';
 import ajax from './common/ajax.js'
+import filters from './filters'
 
 Vue.use(ElementUI)
+Vue.use(filters)
 
 Vue.prototype.$ajax = ajax;
 console.log('store', store)
