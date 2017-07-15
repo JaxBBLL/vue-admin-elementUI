@@ -5,6 +5,9 @@
       </el-table-column>
       <el-table-column prop="name" label="姓名" width="180">
       </el-table-column>
+      <el-table-column label="状态" width="180">
+        <template scope="scope">{{scope.row.status | getValue('userStatus') }}</template>
+      </el-table-column>
       <el-table-column prop="address" label="地址">
       </el-table-column>
     </el-table>
