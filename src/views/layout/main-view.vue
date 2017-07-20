@@ -18,7 +18,8 @@
             <el-breadcrumb-item :key="key+''" v-for="(item,key) in $route.matched">{{ item.name }}</el-breadcrumb-item>
           </el-breadcrumb>
         </el-row>
-        <transition enter-active-class="animated slideInLeft" leave-active-class="animated slideOutRight">
+        <!-- <transition enter-active-class="animated slideInLeft" leave-active-class="animated slideOutRight"> -->
+        <transition>
           <router-view></router-view>
         </transition>
       </div>
