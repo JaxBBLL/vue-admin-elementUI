@@ -1,8 +1,14 @@
 import axios from 'axios'
-import { Message } from 'element-ui'
+import querystring from 'querystring'
+// import { Message } from 'element-ui'
 axios.defaults.baseURL = '';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-
+axios.defaults.withCredentials = true
+axios.defaults.transformRequest = [
+  function (data) {
+    return querystring.stringify(data);
+  }
+];
 //  添加一个请求拦截器
 axios.interceptors.request.use(config => {
   return config;
@@ -13,10 +19,10 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(res => {
   if (res.status === 200) {
     //  do something
-    Message({
-      message: '请求成功！',
-      type: 'success'
-    });
+    // Message({
+    //   message: '请求成功！',
+    //   type: 'success'
+    // });
   }
   return res;
 }, err => {

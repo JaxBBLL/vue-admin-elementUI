@@ -41,6 +41,16 @@ const registerRoute = (navConfig) => {
 
 const route = registerRoute(routes)
 
-export default new Router({
+var r = new Router({
   routes: route
 })
+
+const loginUrl = '/login';
+r.beforeEach((to, from, next) => {
+  if (!window.sessionStorage.getItem('user') && to.path !== loginUrl) {
+    next(loginUrl);
+  } else {
+    next()
+  }
+})
+export default r

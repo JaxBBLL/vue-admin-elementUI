@@ -40,11 +40,11 @@ export default {
   data() {
     return {
       logining: false,
-      verifyImage: '',
+      verifyImage: this.$appconfig.captcha,
       form: {
-        userName: '', //  zjadmin
-        password: '', //  123456
-        captcha: '',
+        userName: 'zjadmin', //  zjadmin
+        password: '123456', //  123456
+        captcha: '12345',
         rememberMe: false
       },
       rules: {
@@ -96,11 +96,11 @@ export default {
       }
       this.logining = true;
       window.sessionStorage.clear();
-      this.axios.post('/api/v1/admin/login', this.form).then(res => {
+      this.$ajax.post('/api/v1/admin/login', this.form).then(res => {
         this.logining = false;
-        if (res.data.success) {
+        if (res.success) {
           window.sessionStorage.setItem('menuType', 1);
-          var user = JSON.stringify(res.data.data);
+          var user = JSON.stringify(res.data);
           this.$store.commit('UPDATE_USER', user);
           const url = window.sessionStorage.getItem('url') || '';
           if (url !== '' && url.indexOf('register') < 0 && url.indexOf('findpwd') < 0) {
@@ -110,7 +110,7 @@ export default {
             this.$router.push('/')
           }
         } else {
-          this.$message.error(res.data.message);
+          this.$message.error(res.message);
           this.loadVerify();
         }
       })
