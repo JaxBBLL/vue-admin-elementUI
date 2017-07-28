@@ -5,7 +5,7 @@
       <i v-if='!isFolder' class="fa fa-file-text"></i> {{model.name}}
     </div>
     <ul v-show="open" v-if='isFolder' style="margin-left:20px;">
-      <tree-list v-for='cel in model.children' :model='cel'></tree-list>
+      <tree-list v-for='cel in model.children' :model='cel' :key="cel.id"></tree-list>
     </ul>
   </li>
 </template>
