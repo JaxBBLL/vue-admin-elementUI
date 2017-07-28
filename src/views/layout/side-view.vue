@@ -52,6 +52,11 @@ export default {
           name: '图表',
           path: '/ui/chart',
           children: []
+        }, {
+          id: 11,
+          name: '树形',
+          path: '/ui/tree',
+          children: []
         }]
       }, {
         id: 2,

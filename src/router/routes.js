@@ -38,6 +38,11 @@ const routes = [{
     page: '/ui/chart',
     bread: true,
     name: '图表'
+  }, {
+    path: '/ui/tree',
+    page: '/ui/tree',
+    bread: true,
+    name: '树形'
   }]
 }]
 export default routes
