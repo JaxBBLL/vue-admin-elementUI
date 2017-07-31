@@ -16,7 +16,7 @@
 <script>
 import {
   getUserList
-} from '../../api/table-api.js';
+} from '../../api/api.js';
 export default {
   data() {
     return {

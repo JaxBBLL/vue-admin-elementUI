@@ -1,7 +1,7 @@
 <template>
   <li>
     <div>
-      <i @click='toggle' v-if='isPlus' class="fa fa-lg" :class="[open?'fa-minus-circle':'fa-plus-circle']"></i><i v-if='!isPlus' class="fa fa-leaf fa-lg"></i><span>{{model.name}}</span>
+      <i @click='toggle(model)' v-if='isPlus' class="fa fa-lg" :class="[open?'fa-minus-circle':'fa-plus-circle']"></i><i v-if='!isPlus' class="fa fa-leaf fa-lg"></i><span>{{model.name}}</span>
       <em>
         <i class="fa fa-plus" @click="handlePlus(model)"></i>
         <i class="fa fa-pencil" @click="handleEdit(model)"></i>
@@ -11,12 +11,15 @@
     <!-- <transition enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft"> -->
     <transition name="fade">
       <ul v-show="open" v-if='isPlus'>
-      <tree-list v-for='cel in model.children' :model='cel' :key="cel.id" @handle-plus="handlePlus" @handle-edit="handleEdit" @handle-delete="handleDelete"></tree-list>
-    </ul>
+        <tree-list v-for='cel in model.children' :model='cel' :key="cel.id" @handle-plus="handlePlus" @handle-edit="handleEdit" @handle-delete="handleDelete"></tree-list>
+      </ul>
     </transition>
   </li>
 </template>
 <script>
+import {
+  getTreeList
+} from '../../api/api.js'
 export default {
   name: 'tree-list',
   props: ['model'],
@@ -27,13 +30,20 @@ export default {
     }
   },
   computed: {
-    isPlus: function() {
-      return this.model.children && this.model.children.length
+    isPlus() {
+      return this.model.isPlus
     }
   },
   methods: {
-    toggle: function() {
-      if (this.isPlus) {
+    toggle(model) {
+      if (!this.open) {
+        getTreeList().then(res => {
+          console.log(res)
+          model.children = res
+          this.open = !this.open
+        })
+      } else {
+        model.children = [];
         this.open = !this.open
       }
     },
@@ -51,7 +61,7 @@ export default {
 </script>
 <style scoped>
 ul {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 li {

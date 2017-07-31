@@ -18,10 +18,10 @@ axios.interceptors.request.use(config => {
 //  添加一个响应拦截器
 axios.interceptors.response.use(res => {
   if (res.status === 200) {
-    Message({
-      message: '请求成功！',
-      type: 'success'
-    })
+    // Message({
+    //   message: '请求成功！',
+    //   type: 'success'
+    // })
   }
   return res
 }, err => {

@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-col :span="4">
+    <el-col :span="24">
       <ul style="margin-top:-10px;">
       <tree-list :model="model" v-for='model in data' :key="model.id" @handle-plus="handlePlus" @handle-edit="handleEdit" @handle-delete="handleDelete"></tree-list>
     </ul>
@@ -17,37 +17,15 @@ export default {
     return {
       data: [{
         id: 1,
-        name: '项目管理',
-        children: [{
-          id: 101,
-          name: '项目1',
-          children: [{
-            id: 1001,
-            name: '项目1-1',
-            children: []
-          }, {
-            id: 1002,
-            name: '项目1-2',
-            children: []
-          }]
-        }]
-      }, {
-        id: 2,
-        name: '人事管理',
-        children: [{
-          id: 20,
-          name: '人事1',
-          children: []
-        }, {
-          id: 21,
-          name: '人事2'
-        }]
+        name: '根节点',
+        isPlus: true,
+        children: []
       }]
     }
   },
   methods: {
     handlePlus(model) {
-      console.log(model);
+      console.log(model)
     },
     handleEdit(model) {
       console.log(model);
