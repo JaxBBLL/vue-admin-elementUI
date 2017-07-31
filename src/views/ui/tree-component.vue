@@ -1,11 +1,15 @@
 <template>
   <li>
-    <div @click='toggle'>
-      <i v-if='isFolder' class="fa" :class="[open?'fa-folder-open':'fa-folder']"></i>
-      <i v-if='!isFolder' class="fa fa-file-text"></i> {{model.name}}
+    <div>
+      <i @click='toggle' v-if='isPlus' class="fa fa-lg" :class="[open?'fa-minus-circle':'fa-plus-circle']"></i><i v-if='!isPlus' class="fa fa-leaf fa-lg"></i><span>{{model.name}}</span>
+      <em>
+        <i class="fa fa-plus" @click="handlePlus(model)"></i>
+        <i class="fa fa-pencil" @click="handleEdit(model)"></i>
+        <i class="fa fa-trash" @click="handleDelete(model)"></i>
+      </em>
     </div>
-    <ul v-show="open" v-if='isFolder' style="margin-left:20px;">
-      <tree-list v-for='cel in model.children' :model='cel' :key="cel.id"></tree-list>
+    <ul v-show="open" v-if='isPlus'>
+      <tree-list v-for='cel in model.children' :model='cel' :key="cel.id" @handle-plus="handlePlus" @handle-edit="handleEdit" @handle-delete="handleDelete"></tree-list>
     </ul>
   </li>
 </template>
@@ -20,24 +24,57 @@ export default {
     }
   },
   computed: {
-    isFolder: function() {
+    isPlus: function() {
       return this.model.children && this.model.children.length
     }
   },
   methods: {
     toggle: function() {
-      if (this.isFolder) {
+      if (this.isPlus) {
         this.open = !this.open
       }
+    },
+    handlePlus(model) {
+      this.$emit('handle-plus', model)
+    },
+    handleEdit(model) {
+      this.$emit('handle-edit', model)
+    },
+    handleDelete(model) {
+      this.$emit('handle-delete', model)
     }
   }
 }
 </script>
 <style scoped>
-	li {
-		padding:10px 0;
-	}
-	i {
-		cursor: pointer;
-	}
+ul {
+  margin-left: 10px;
+}
+
+li {
+  padding-top: 20px;
+}
+
+i {
+  cursor: pointer;
+}
+
+i.fa-leaf {
+  cursor: pointer;
+}
+
+span {
+  padding: 5px;
+  margin-left: 8px;
+  border: 1px dotted #ccc;
+  border-radius: 5px;
+}
+
+span:hover {
+  background-color: #EFF2F7;
+}
+
+em i:hover {
+  color: #e33;
+}
 </style>
