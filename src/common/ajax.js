@@ -18,11 +18,10 @@ axios.interceptors.request.use(config => {
 //  添加一个响应拦截器
 axios.interceptors.response.use(res => {
   if (res.status === 200) {
-      //  do something
-      // Message({
-      //   message: '请求成功！',
-      //   type: 'success'
-      // });
+    Message({
+      message: '请求成功！',
+      type: 'success'
+    });
   }
   return res;
 }, err => {
@@ -38,11 +37,12 @@ const http = {
     }
     return new Promise((resolve, reject) => {
       axios.get(`${base}` + url, { params: params }).then(res => {
-        if (res.data.code === 200) {
-          resolve(res.data);
-        } else if (res.data.code === 500) {
-          reject(res.data);
-        }
+        resolve(res.data)
+        // if (res.data.code === 200) {
+        //   resolve(res.data);
+        // } else if (res.data.code === 500) {
+        //   reject(res.data);
+        // }
       })
     })
   },

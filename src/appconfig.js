@@ -1,6 +1,6 @@
 module.exports = {
   httpServer: '',
-  proxyServer: 'http://admin.test.kucdn.cn/',
+  proxyServer: '',
   captcha: 'http://admin.test.kucdn.cn/api/v1/admin/captcha'
 }
 

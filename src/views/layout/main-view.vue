@@ -2,12 +2,12 @@
 	 <div class="main-container">
       <div class="main-header">
         <div class="main-header-user">
-          <el-dropdown>
+          <el-dropdown @command="handleClick">
             <span class="el-dropdown-link">
-				    Peter<i class="el-icon-caret-bottom el-icon--right"></i>
+				    {{name}}<i class="el-icon-caret-bottom el-icon--right"></i>
 				  </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>退出</el-dropdown-item>
+              <el-dropdown-item command="logout">退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -28,7 +28,29 @@
 <script>
   export default {
     mounted() {
-      console.log('route', this.$route)
+      this.$store.commit('getUser')
+    },
+    computed: {
+      name() {
+        return this.$store.state.user.name;
+      }
+    },
+    methods: {
+      logout() {
+        this.$confirm('确认退出吗?', '提示', {
+          type: 'warning'
+        }).then(() => {
+          this.$router.push('/login');
+        }).catch(() => {});
+      },
+      handleClick(val) {
+        console.log(val)
+        switch (val) {
+          case 'logout':
+            this.logout();
+            break;
+        }
+      }
     }
   }
 </script>

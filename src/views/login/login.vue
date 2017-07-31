@@ -16,7 +16,7 @@
         </el-col>
         <el-col class="line" :span="2">&nbsp;</el-col>
         <el-col :span="11">
-          <img class="weui-vcode-img" :src="verifyImage" height="42" @click="loadVerify" />
+          <img class="weui-vcode-img" :src="verifyImage" height="42"/>
         </el-col>
       </el-form-item>
       <el-form-item style="width:100%;">
@@ -96,35 +96,14 @@ export default {
       }
       this.logining = true;
       window.sessionStorage.clear();
-      this.$ajax.post('/api/v1/admin/login', this.form).then(res => {
-        this.logining = false;
-        if (res.success) {
-          window.sessionStorage.setItem('menuType', 1);
-          var user = JSON.stringify(res.data);
-          this.$store.commit('UPDATE_USER', user);
-          const url = window.sessionStorage.getItem('url') || '';
-          if (url !== '' && url.indexOf('register') < 0 && url.indexOf('findpwd') < 0) {
-            this.$store.commit('UPDATE_URL', '');
-            this.$router.push(url)
-          } else {
-            this.$router.push('/')
-          }
-        } else {
-          this.$message.error(res.message);
-          this.loadVerify();
-        }
-      })
+      const user = {
+        name: 'Peter'
+      }
+      window.sessionStorage.setItem('user', JSON.stringify(user));
+      this.$router.push('/')
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
-    },
-    loadVerify() {
-      const index = this.verifyImage.indexOf('?');
-      let imageUrl = this.verifyImage;
-      if (index > -1) {
-        imageUrl = this.verifyImage.substr(0, index)
-      }
-      this.verifyImage = imageUrl + '?t=' + new Date().getTime()
     }
   }
 }
