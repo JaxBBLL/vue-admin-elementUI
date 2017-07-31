@@ -5,16 +5,17 @@ import ElementUI from 'element-ui'
 // import 'element-ui/lib/theme-default/index.css'
 import './assets/theme/theme/index.css'
 import './assets/style/el-ui.css'
+import './assets/style/common.css'
 import './mock/index.js';
 import App from './App';
 import store from './store';
-import ajax from './common/ajax.js'
+import http from './common/http.js'
 import filters from './filters'
 import appconfig from './appconfig.js'
 
 Vue.use(ElementUI)
 Vue.use(filters)
-Vue.prototype.$ajax = ajax;
+Vue.prototype.$http = http;
 Vue.prototype.$appconfig = appconfig;
 
 Vue.config.productionTip = false

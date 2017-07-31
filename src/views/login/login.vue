@@ -42,7 +42,7 @@ export default {
       logining: false,
       verifyImage: this.$appconfig.captcha,
       form: {
-        userName: 'zjadmin', //  zjadmin
+        userName: 'Peter', //  zjadmin
         password: '123456', //  123456
         captcha: '12345',
         rememberMe: false
@@ -83,27 +83,27 @@ export default {
     }
   },
   mounted() {
-    window.sessionStorage.clear();
+    window.sessionStorage.clear()
   },
   methods: {
     submitForm(formName) {
-      let valid = false;
+      let valid = false
       this.$refs[formName].validate((v) => {
         valid = v
-      });
+      })
       if (!valid) {
-        return false;
+        return false
       }
-      this.logining = true;
-      window.sessionStorage.clear();
+      this.logining = true
+      window.sessionStorage.clear()
       const user = {
         name: 'Peter'
       }
-      window.sessionStorage.setItem('user', JSON.stringify(user));
+      window.sessionStorage.setItem('user', JSON.stringify(user))
       this.$router.push('/')
     },
     resetForm(formName) {
-      this.$refs[formName].resetFields();
+      this.$refs[formName].resetFields()
     }
   }
 }

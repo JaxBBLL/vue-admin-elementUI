@@ -8,9 +8,12 @@
         <i class="fa fa-trash" @click="handleDelete(model)"></i>
       </em>
     </div>
-    <ul v-show="open" v-if='isPlus'>
+    <!-- <transition enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft"> -->
+    <transition name="fade">
+      <ul v-show="open" v-if='isPlus'>
       <tree-list v-for='cel in model.children' :model='cel' :key="cel.id" @handle-plus="handlePlus" @handle-edit="handleEdit" @handle-delete="handleDelete"></tree-list>
     </ul>
+    </transition>
   </li>
 </template>
 <script>

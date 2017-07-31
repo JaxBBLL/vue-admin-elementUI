@@ -1,3 +1,3 @@
-import ajax from '../common/ajax.js';
+import http from '../common/http.js'
 
-export const getUserList = params => ajax.get('/user/list').then(res => res);
+export const getUserList = params => http.get('/user/list').then(res => res)

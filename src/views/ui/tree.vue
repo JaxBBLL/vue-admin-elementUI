@@ -1,9 +1,11 @@
 <template>
-  <el-col :span=5>
-    <ul>
+  <el-row>
+    <el-col :span="4">
+      <ul style="margin-top:-10px;">
       <tree-list :model="model" v-for='model in data' :key="model.id" @handle-plus="handlePlus" @handle-edit="handleEdit" @handle-delete="handleDelete"></tree-list>
     </ul>
-  </el-col>
+    </el-col>
+  </el-row>
 </template>
 <script>
 import treeList from './tree-component.vue'

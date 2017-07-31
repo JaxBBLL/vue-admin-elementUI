@@ -24,13 +24,13 @@ export default {
     }
   },
   mounted() {
-    this.getList();
+    this.getList()
   },
   methods: {
     getList() {
       getUserList().then(res => {
-        console.log('res', res);
-        this.tableData = res;
+        console.log('res', res)
+        this.tableData = res
       })
     }
   }

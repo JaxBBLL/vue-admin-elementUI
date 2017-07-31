@@ -75,9 +75,6 @@ export default {
       return this.$store.state.collapsed
     }
   },
-  mounted() {
-    console.log('store...', this.$store)
-  },
   methods: {
     toggleCollapse() {
       this.$store.commit('toggleCollapse')

@@ -60,10 +60,11 @@ export default {
     text-align: center;
     background-color: #1f2d3d;
     color: #fff;
-    font-size: 20px;
     font-weight: bold;
 }
-
+.app-wrapper .logo span{
+    font-size: 20px;
+}
 .app-wrapper .menu-wrapper {
     height: 100%;
 }
@@ -77,6 +78,7 @@ export default {
     height: 50px;
     background-color: #324157;
     width: 100%;
+    top: 0;
 }
 
 .app-wrapper .main-header .main-header-user {
@@ -92,9 +94,10 @@ export default {
 }
 
 .app-wrapper .main-body {
-    top: 50px;
-    position: relative;
+    margin-top: 50px;
+    /*position: relative;*/
     padding: 15px;
+    overflow: auto;
 }
 
 .app-wrapper i.collapse-arrow {
