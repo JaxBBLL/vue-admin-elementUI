@@ -2,8 +2,9 @@
 
 > A Vue.js project
 
-[image](https://raw.githubusercontent.com/JaxBBLL/vue-admin-elementUI/task/preview/1.png)
-[image](https://raw.githubusercontent.com/JaxBBLL/vue-admin-elementUI/task/preview/2.png)
+![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/task/preview/1.png)
+![image](https://raw.githubusercontent.com/JaxBBLL/vue-admin-elementUI/task/preview/1.png)
+![image](https://raw.githubusercontent.com/JaxBBLL/vue-admin-elementUI/task/preview/2.png)
 
 ## Build Setup
 
