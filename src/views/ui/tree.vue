@@ -2,7 +2,7 @@
   <el-row>
     <el-col :span="24">
       <ul style="margin-top:-10px;">
-      <tree-list :model="model" v-for='model in data' :key="model.id" @handle-plus="handlePlus" @handle-edit="handleEdit" @handle-delete="handleDelete"></tree-list>
+      <tree-list :model="model" :data="data" v-for='model in data' :key="model.id" @handle-plus="handlePlus" @handle-edit="handleEdit" @handle-delete="handleDelete"></tree-list>
     </ul>
     </el-col>
   </el-row>
@@ -25,13 +25,13 @@ export default {
   },
   methods: {
     handlePlus(model) {
-      console.log(model)
+      console.log(this.data)
     },
     handleEdit(model) {
       console.log(model);
     },
     handleDelete(model) {
-      console.log(model);
+      // console.log(model);
     }
   }
 }

@@ -12,6 +12,7 @@ import store from './store';
 import http from './common/http.js'
 import filters from './filters'
 import appconfig from './appconfig.js'
+import './assets/style/test.css'
 
 Vue.use(ElementUI)
 Vue.use(filters)

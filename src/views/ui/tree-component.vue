@@ -11,7 +11,7 @@
     <!-- <transition enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft"> -->
     <transition name="fade">
       <ul v-show="open" v-if='isPlus'>
-        <tree-list v-for='cel in model.children' :model='cel' :key="cel.id" @handle-plus="handlePlus" @handle-edit="handleEdit" @handle-delete="handleDelete"></tree-list>
+        <tree-list v-for='cel in model.children' :data="data" :model='cel' :key="cel.id" @handle-plus="handlePlus" @handle-edit="handleEdit" @handle-delete="handleDelete"></tree-list>
       </ul>
     </transition>
   </li>
@@ -22,7 +22,7 @@ import {
 } from '../../api/api.js'
 export default {
   name: 'tree-list',
-  props: ['model'],
+  props: ['model', 'data'],
   components: {},
   data() {
     return {
@@ -54,7 +54,23 @@ export default {
       this.$emit('handle-edit', model)
     },
     handleDelete(model) {
+      console.log(this.data)
       this.$emit('handle-delete', model)
+      this.walk(this.data, target => {
+        if (target.id === model.id) {
+          console.log(target.id)
+        }
+      })
+    },
+    walk(node, cb) {
+      if (node === null) return;
+      var stack = JSON.parse(JSON.stringify(node))
+      var target
+      while (stack.length) {
+        target = stack.shift()
+        cb(target)
+      }
+      [].push.apply(stack, target.children)
     }
   }
 }

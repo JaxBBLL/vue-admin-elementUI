@@ -1,6 +1,7 @@
 <template>
   <el-row>
-    this is home
+    <div class="bg-test"></div>
+    <div>home</div>
   </el-row>
 </template>
 <script>
@@ -11,3 +12,6 @@ export default {
   }
 }
 </script>
+<style>
+	
+</style>

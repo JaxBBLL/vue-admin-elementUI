@@ -2,7 +2,13 @@ const routes = [{
   path: '/',
   name: '首页',
   page: '/layout/index',
-  bread: false
+  bread: false,
+  children: [{
+    path: '/home',
+    page: '/home',
+    name: '首页',
+    bread: false
+  }]
 }, {
   path: '/login',
   page: '/login/login',
