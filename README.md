@@ -1,6 +1,8 @@
-# vue-demo
+# vue-admin-elementUI
 
 > A Vue.js project
+
+# 预览
 
 ![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/task/preview/1.png)
 ![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/task/preview/2.png)
@@ -20,5 +22,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
