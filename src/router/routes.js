@@ -45,10 +45,10 @@ const routes = [{
     bread: true,
     name: '按钮'
   }, {
-    path: '/ui/chart',
-    page: '/ui/chart',
+    path: '/ui/form',
+    page: '/ui/form',
     bread: true,
-    name: '图表'
+    name: '表单'
   }, {
     path: '/ui/tree',
     page: '/ui/tree',
