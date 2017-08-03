@@ -3,6 +3,8 @@ const routes = [{
   name: '首页',
   page: '/layout/index',
   bread: false,
+  leaf: true,
+  icon: 'fa fa-home fa-lg',
   children: [{
     path: '/home',
     page: '/home',
@@ -12,12 +14,14 @@ const routes = [{
 }, {
   path: '/login',
   page: '/login/login',
-  name: '登录'
+  name: '登录',
+  hidden: true
 }, {
   path: '/user',
-  name: '用户管理',
+  name: '用户',
   page: '/layout/index',
   bread: true,
+  icon: 'fa fa-user fa-lg',
   children: [{
     path: '/user/index',
     page: '/user/index',
@@ -29,6 +33,7 @@ const routes = [{
   name: 'UI',
   page: '/layout/index',
   bread: true,
+  icon: 'fa fa-table fa-lg',
   children: [{
     path: '/ui/table',
     page: '/ui/table',

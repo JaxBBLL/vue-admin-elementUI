@@ -19,7 +19,7 @@
 .el-submenu .el-menu-item:hover, .el-submenu__title:hover {
 	background-color: #48576a;
 }
-.el-submenu [class^=fa] {
+.el-submenu [class^=fa],.el-menu-item [class^=fa] {
 	margin-right: 6px;
 }
 .el-table {

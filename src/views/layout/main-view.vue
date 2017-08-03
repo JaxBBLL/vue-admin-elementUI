@@ -28,6 +28,7 @@
   export default {
     mounted() {
       this.$store.commit('getUser')
+      console.log('$router', this.$router)
     },
     computed: {
       name() {

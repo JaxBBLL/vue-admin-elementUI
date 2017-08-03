@@ -95,8 +95,7 @@ export default {
 
 .app-wrapper .main-body {
     margin-top: 50px;
-    /*position: relative;*/
-    padding: 15px;
+    padding: 10px;
     overflow: auto;
 }
 

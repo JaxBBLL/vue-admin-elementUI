@@ -9,6 +9,7 @@ const registerRoute = (navConfig) => {
   const route = []
   route.push({
     path: '*',
+    hidden: true,
     redirect: {
       path: '/404'
     }
@@ -28,9 +29,11 @@ const registerRoute = (navConfig) => {
     return {
       path: nav.path || '',
       name: nav.name,
+      hidden: nav.hidden || false,
+      leaf: nav.leaf || false,
+      icon: nav.icon || '',
       component: require(`../views${nav.page}`),
       meta: {
-        title: nav.name,
         bread: nav.bread
       }
     }

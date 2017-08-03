@@ -1,8 +1,6 @@
-# vue-admin-elementUI
+# vue-admin-elementUI(A Vue.js project)
 
-> A Vue.js project
-
-# 预览
+> 预览
 
 ![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/task/preview/1.png)
 ![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/task/preview/2.png)

@@ -1,7 +1,6 @@
 <template>
   <el-row>
-    <div class="bg-test"></div>
-    <div>home</div>
+    <h1>home page</h1>
   </el-row>
 </template>
 <script>
