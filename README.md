@@ -4,6 +4,7 @@
 
 ![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/task/preview/1.png)
 ![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/task/preview/2.png)
+![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/task/preview/3.png)
 
 ## Build Setup
 
