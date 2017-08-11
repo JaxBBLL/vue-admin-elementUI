@@ -59,6 +59,34 @@ function dateFmt(date, format) {
     return cfg[m]
   })
 }
+function getValue(value, name) {
+  const tmp = dictionary[name]
+  if (tmp === undefined) {
+    return ''
+  }
+  const map = tmp['options']
+  let result = ''
+  if (map !== undefined) {
+    for (let i = 0; i < map.length; i++) {
+      const tmp = map[i]
+      if (tmp.label === value) {
+        result = tmp.value
+        break
+      }
+    }
+    return result;
+  } else {}
+}
+function currencyFmt(s, n) {
+  n = n > 0 && n <= 20 ? n : 2;
+  if (!s && s !== 0) {
+    return '';
+  }
+  s = parseFloat((s + '').replace(/[^\d\.-]/g, '')).toFixed(n) + '';
+  var l = s.split('.')[0];
+  var r = s.split('.')[1];
+  return '\u00a5' + ' ' + l + '.' + r;
+}
 
 var output = {};
 output.install = function (Vue) {
@@ -68,25 +96,8 @@ output.install = function (Vue) {
   Vue.prototype.$dateFilter = dateFmt;
   Vue.prototype.$toJSON = toJSON;
 
-  Vue.filter('getValue', function (value, name) {
-    const tmp = dictionary[name]
-    if (tmp === undefined) {
-      return ''
-    }
-    const map = tmp['options']
-    let result = ''
-    if (map !== undefined) {
-      for (let i = 0; i < map.length; i++) {
-        const tmp = map[i]
-        if (tmp.label === value) {
-          result = tmp.value
-          break
-        }
-      }
-      return result;
-    } else {}
-  })
-
+  Vue.filter('getValue', getValue);
+  Vue.filter('currency', currencyFmt);
   Vue.filter('dateFilter', dateFmt);
 }
 
