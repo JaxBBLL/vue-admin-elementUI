@@ -6,6 +6,7 @@ import ElementUI from 'element-ui'
 import './assets/theme/theme/index.css'
 import './assets/style/el-ui.css'
 import './assets/style/common.css'
+import 'font-awesome/css/font-awesome.min.css' //  字体
 import './mock/index.js'
 import App from './App'
 import store from './store'
