@@ -17,9 +17,12 @@ export default {
     return {
       data: [{
         id: 1,
+        pid: 0,
         name: '根节点',
         isPlus: true,
-        children: []
+        children: [],
+        path: '0',
+        isRoot: true
       }]
     }
   },
