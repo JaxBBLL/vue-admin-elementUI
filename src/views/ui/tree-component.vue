@@ -78,7 +78,7 @@ export default {
         var p = path.shift() - 0;
         result = target[p];
         target = result.children;
-        if (path.length === 1) {  //  length===1 为父数据
+        if (path.length === 1) { //  length===1 为父数据
           target.splice(path[0], 1);
           break;
         }
