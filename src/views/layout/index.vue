@@ -79,6 +79,7 @@ export default {
     background-color: #324157;
     width: 100%;
     top: 0;
+    z-index: 100;
 }
 
 .app-wrapper .main-header .main-header-user {

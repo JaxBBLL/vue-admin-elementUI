@@ -40,10 +40,10 @@ const routes = [{
     bread: true,
     name: '表格'
   }, {
-    path: '/ui/button',
-    page: '/ui/button',
+    path: '/ui/echarts',
+    page: '/ui/echarts',
     bread: true,
-    name: '按钮'
+    name: '图表'
   }, {
     path: '/ui/form',
     page: '/ui/form',
