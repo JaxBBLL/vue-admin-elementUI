@@ -1,6 +1,7 @@
 <template>
   <el-row>
     <h1>home page</h1>
+    <wang-e></wang-e>
   </el-row>
 </template>
 <script>

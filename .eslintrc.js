@@ -27,6 +27,7 @@ module.exports = {
     'semi': 0,
     'no-useless-escape': 0,
     'quotes': 0,
-    'indent': 0
+    'indent': 0,
+    'no-tabs': 0
   }
 }
