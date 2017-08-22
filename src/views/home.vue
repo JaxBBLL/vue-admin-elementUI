@@ -4,6 +4,7 @@
     <div class="">
       <v-editor :content="content" :path="path" v-model="result"></v-editor>
       <input type="button" name="name" value="submit" @click="submit">
+      <input type="button" name="name" value="change" @click="change">
     </div>
   </el-row>
 </template>
@@ -22,6 +23,9 @@ export default {
   methods: {
     submit() {
       console.log(this.result)
+    },
+    change() {
+      this.content = 'hello result' + Math.random();
     }
   }
 }

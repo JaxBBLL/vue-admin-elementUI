@@ -11,6 +11,14 @@ export default {
       editor: ''
     }
   },
+  watch: {
+    content(newV, oldV) {
+      console.log(newV, oldV)
+      this.content = newV;
+      this.editor.txt.html(newV);
+      this.result();
+    }
+  },
   mounted() {
     const el = document.getElementById('editor')
     const editor = new WangEditor(el)
@@ -39,9 +47,11 @@ export default {
     editor.create()
     editor.txt.html(this.content)
     editor.customConfig.onchange = (html) => {
-      this.$emit('input', this.editor.txt.html())
+      this.content = html;
+      this.result();
     }
-    this.editor = editor
+    this.editor = editor;
+    this.result();
   },
   methods: {
     result() {
