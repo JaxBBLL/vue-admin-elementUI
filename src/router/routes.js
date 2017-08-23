@@ -54,6 +54,11 @@ const routes = [{
     page: '/ui/tree',
     bread: true,
     name: '树形'
+  }, {
+    path: '/ui/ueditor',
+    page: '/ui/ueditor',
+    bread: true,
+    name: 'ueditor'
   }]
 }]
 export default routes
