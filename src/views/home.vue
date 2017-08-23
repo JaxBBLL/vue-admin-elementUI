@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <h1>home page</h1>
+    <h1>home page test</h1>
     <div class="">
       <v-editor :content="content" :path="path" v-model="result"></v-editor>
       <input type="button" name="name" value="submit" @click="submit">
