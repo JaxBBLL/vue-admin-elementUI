@@ -1,62 +1,42 @@
 <template>
-  <div ref="editor"></div>
+  <div>
+    <script :id="randomId" type="text/plain"></script>
+  </div>
 </template>
 <script>
 /* eslint-disable */
-import '@/assets/UE/ueditor.config';
-/* eslint-disable */
-import '@/assets/UE/ueditor.all';
-/* eslint-disable */
-// import '@/assets/UE/lang/zh-cn/zh-cn';
-
+import '../../static/ueditor/ueditor.config.js'
+import '../../static/ueditor/ueditor.all.min.js'
+import '../../static/ueditor/lang/zh-cn/zh-cn.js'
 export default {
   data() {
-    return {
-      id: Date.now() + 'ueditorId',
-    };
-  },
-  props: {
-    value: {
-      type: String,
-      default: null,
-    },
-    config: {
-      type: Object,
-      default: {},
-    }
-  },
-  watch: {
-    value: function value(val, oldVal) {
-      this.editor = UE.getEditor(this.id, this.config);
-      if (val !== null) {
-        this.editor.setContent(val);
+      return {
+        editor: null,
+        randomId: 'editor_' + (Math.random() * 100000000000000000)
       }
+    },
+    props: {
+      defaultMsg: {
+        type: String
+      },
+      config: {
+        type: Object
+      }
+    },
+    mounted() {
+      const _this = this;
+      this.editor = UE.getEditor(this.randomId, this.config); // 初始化UE
+      this.editor.addListener("ready", function() {
+        _this.editor.setContent(_this.defaultMsg); // 确保UE加载完成后，放入内容。
+      });
+    },
+    methods: {
+      getUEContent() { // 获取内容方法
+        return this.editor.getContent()
+      }
+    },
+    destroyed() {
+      this.editor.destroy();
     }
-  },
-  mounted() {
-    this.$nextTick(function f1() {
-      // 保证 this.$el 已经插入文档
-
-      this.$refs.editor.id = this.id;
-      this.editor = UE.getEditor(this.id, this.config);
-
-      this.editor.ready(function f2() {
-        this.editor.setContent(this.value);
-
-        this.editor.addListener("contentChange", function() {
-          const wordCount = this.editor.getContentLength(true);
-          const content = this.editor.getContent();
-          const plainTxt = this.editor.getPlainTxt();
-          this.$emit('input', {
-            wordCount: wordCount,
-            content: content,
-            plainTxt: plainTxt
-          });
-        }.bind(this));
-
-        this.$emit('ready', this.editor);
-      }.bind(this));
-    });
-  }
-};
+}
 </script>
