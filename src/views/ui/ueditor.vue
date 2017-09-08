@@ -5,7 +5,6 @@
     <el-button @click="getUEContent()">获取内容</el-button>
     <div>
       <UE :defaultMsg=defaultMsg :config=config ref="ue"></UE>
-      <UE :defaultMsg=defaultMsg :config=config ref="ue2"></UE>
     </div>
   </div>
 </template>
