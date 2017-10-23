@@ -2,7 +2,7 @@
 
 > 预览
 
-![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/task/preview/1.gif)
+![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/master/preview/1.gif)
 
 ## Build Setup
 
