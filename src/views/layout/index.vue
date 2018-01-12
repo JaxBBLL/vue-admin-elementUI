@@ -22,7 +22,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="less">
 .app-wrapper {
     position: relative;
     height: 100%;

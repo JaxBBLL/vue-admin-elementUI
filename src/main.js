@@ -14,11 +14,9 @@ import http from './common/http.js'
 import filters from './filters'
 import appconfig from './appconfig.js'
 import echarts from 'echarts'
-import Components from './components'
 
 Vue.use(ElementUI)
 Vue.use(filters)
-Vue.use(Components)
 Vue.prototype.$http = http
 Vue.prototype.$echarts = echarts
 Vue.prototype.$appconfig = appconfig
