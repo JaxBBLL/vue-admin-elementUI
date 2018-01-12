@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper" :class="{'hide-sidebar':collapse}">
+  <div class="app-wrap" :class="{'hide-sidebar':collapse}">
     <side-view></side-view>
     <main-view></main-view>
   </div>
@@ -23,13 +23,13 @@ export default {
 }
 </script>
 <style lang="less">
-.app-wrapper {
+.app-wrap {
     position: relative;
     height: 100%;
     width: 100%;
 }
 
-.app-wrapper .sidebar-wrapper {
+.app-wrap .sidebar-wrapper {
     width: 200px;
     position: fixed;
     top: 0;
@@ -39,21 +39,21 @@ export default {
     transition: all .28s ease-out;
 }
 
-.app-wrapper.hide-sidebar .sidebar-wrapper {
+.app-wrap.hide-sidebar .sidebar-wrapper {
     width: 60px;
 }
 
-.app-wrapper .main-container {
+.app-wrap .main-container {
     min-height: 100%;
     transition: all .28s ease-out;
     margin-left: 200px;
 }
 
-.app-wrapper.hide-sidebar .main-container {
+.app-wrap.hide-sidebar .main-container {
     margin-left: 60px;
 }
 
-.app-wrapper .logo {
+.app-wrap .logo {
     width: 100%;
     height: 50px;
     line-height: 50px;
@@ -62,18 +62,18 @@ export default {
     color: #fff;
     font-weight: bold;
 }
-.app-wrapper .logo span{
+.app-wrap .logo span{
     font-size: 20px;
 }
-.app-wrapper .menu-wrapper {
+.app-wrap .menu-wrapper {
     height: 100%;
 }
 
-.app-wrapper .el-menu {
+.app-wrap .el-menu {
     height: 100%;
 }
 
-.app-wrapper .main-container .main-header {
+.app-wrap .main-container .main-header {
     position: fixed;
     height: 50px;
     background-color: #324157;
@@ -82,25 +82,25 @@ export default {
     z-index: 100;
 }
 
-.app-wrapper .main-header .main-header-user {
+.app-wrap .main-header .main-header-user {
     position: fixed;
     height: 50px;
     line-height: 50px;
     right: 20px;
 }
 
-.app-wrapper .main-header-user .el-dropdown-link {
+.app-wrap .main-header-user .el-dropdown-link {
     color: #fff;
     cursor: pointer;
 }
 
-.app-wrapper .main-body {
+.app-wrap .main-body {
     margin-top: 50px;
     padding: 10px;
     overflow: auto;
 }
 
-.app-wrapper i.collapse-arrow {
+.app-wrap i.collapse-arrow {
     margin-left: -10px;
     position: absolute;
     bottom: 15px;
@@ -108,16 +108,16 @@ export default {
     color: #bfcbd9;
 }
 
-.app-wrapper i.collapse-arrow:hover {
+.app-wrap i.collapse-arrow:hover {
     color: #fff;
     cursor: pointer;
 }
 
-.app-wrapper .parent-menu {
+.app-wrap .parent-menu {
     position: relative;
 }
 
-.app-wrapper .son-menu {
+.app-wrap .son-menu {
     position: absolute;
     top: 0px;
     left: 60px;
@@ -126,15 +126,15 @@ export default {
     display: none;
 }
 
-.app-wrapper .son-menu:hover {
+.app-wrap .son-menu:hover {
     display: block;
 }
 
-.app-wrapper.hide-sidebar .el-submenu__title:hover+.son-menu {
+.app-wrap.hide-sidebar .el-submenu__title:hover+.son-menu {
     display: block;
 }
 
-.app-wrapper .son-menu-item a {
+.app-wrap .son-menu-item a {
     display: block;
     height: 40px;
     line-height: 40px;
@@ -143,15 +143,15 @@ export default {
     font-size: 14px;
 }
 
-.app-wrapper .son-menu-item a:hover {
+.app-wrap .son-menu-item a:hover {
     background-color: #48576a;
 }
 
-.app-wrapper .el-menu-item a,
-.app-wrapper .el-menu-item a:link,
-.app-wrapper .el-menu-item a:focus,
-.app-wrapper .el-menu-item a:active,
-.app-wrapper .el-menu-item a:visited {
+.app-wrap .el-menu-item a,
+.app-wrap .el-menu-item a:link,
+.app-wrap .el-menu-item a:focus,
+.app-wrap .el-menu-item a:active,
+.app-wrap .el-menu-item a:visited {
     color: #bfcbd9;
     display: block;
     width: 100%;
@@ -161,17 +161,17 @@ export default {
     padding-right: 45px;
 }
 
-.app-wrapper .el-menu-item a.router-link-active,
-.app-wrapper .son-menu-item a.router-link-active {
+.app-wrap .el-menu-item a.router-link-active,
+.app-wrap .son-menu-item a.router-link-active {
     color: #bfcbd9;
 }
 
-.app-wrapper .el-menu-item a.router-link-exact-active.router-link-active,
-.app-wrapper .son-menu-item a.router-link-exact-active.router-link-active {
+.app-wrap .el-menu-item a.router-link-exact-active.router-link-active,
+.app-wrap .son-menu-item a.router-link-exact-active.router-link-active {
     color: #20a0ff;
 }
 
-.app-wrapper .bread {
+.app-wrap .bread {
     margin-bottom: 10px;
     border: 1px solid #e3e3e3;
     padding: 10px;
