@@ -16,7 +16,7 @@
         </el-col>
         <el-col class="line" :span="2">&nbsp;</el-col>
         <el-col :span="11">
-          <img class="weui-vcode-img" :src="verifyImage" height="42"/>
+          <img class="weui-vcode-img" :src="verifyImage" height="42" />
         </el-col>
       </el-form-item>
       <el-form-item style="width:100%;">
@@ -108,34 +108,26 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped lang="less">
 .login-container {
-  -webkit-border-radius: 5px;
+  margin: 200px auto;
+  width: 400px;
+  height: 360px;
   border-radius: 5px;
-  -moz-border-radius: 5px;
-  background-clip: padding-box;
-  margin: 120px auto;
-  width: 420px;
-  padding: 35px 35px 15px 35px;
+  padding: 20px;
   background: #fff;
   border: 1px solid #eaeaea;
   box-shadow: 0 0 25px #cac6c6;
+  .title {
+    margin: 0px auto 40px auto;
+    text-align: center;
+    color: #505458;
+  }
+  .remember {
+    margin: 0px 0px 35px 0px;
+  }
+  .weui-vcode-img {
+    cursor: pointer;
+  }
 }
-.login-container .title {
-  margin: 0px auto 40px auto;
-  text-align: center;
-  color: #505458;
-}
-.login-container .remember {
-  margin: 0px 0px 35px 0px;
-}
-.login-container .weui-vcode-img {
-  cursor: pointer;
-}
-textarea {
-  width: 400px;
-  height: 300px;
-  font-size: 12px;
-}
-
 </style>

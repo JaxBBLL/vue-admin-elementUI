@@ -23,7 +23,7 @@ const routes = [{
   bread: true,
   icon: 'fa fa-user fa-lg',
   children: [{
-    path: '/index',
+    path: '/user/index',
     page: '/user/index',
     bread: true,
     name: '用户列表'
@@ -35,27 +35,27 @@ const routes = [{
   bread: true,
   icon: 'fa fa-table fa-lg',
   children: [{
-    path: '/table',
+    path: '/ui/table',
     page: '/ui/table',
     bread: true,
     name: '表格'
   }, {
-    path: '/echarts',
+    path: '/ui/echarts',
     page: '/ui/echarts',
     bread: true,
     name: '图表'
   }, {
-    path: '/form',
+    path: '/ui/form',
     page: '/ui/form',
     bread: true,
     name: '表单'
   }, {
-    path: '/tree',
+    path: '/ui/tree',
     page: '/ui/tree',
     bread: true,
     name: '树形'
   }, {
-    path: '/ueditor',
+    path: '/ui/ueditor',
     page: '/ui/ueditor',
     bread: true,
     name: 'ueditor'

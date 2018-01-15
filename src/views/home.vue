@@ -1,10 +1,9 @@
 <template>
   <el-row>
-    <h1>home page test</h1>
-    <div class="">
-      <input type="button" name="name" value="submit" @click="submit">
-      <input type="button" name="name" value="change" @click="change">
-    </div>
+    <h1>Home page</h1>
+    <el-row>
+      <el-button type="primary">按钮</el-button>
+    </el-row>
   </el-row>
 </template>
 <script>
@@ -12,18 +11,8 @@ export default {
   data() {
       return {}
     },
-    methods: {
-      submit() {
-        console.log(this.result)
-      },
-      change() {
-        this.content = 'hello result' + Math.random();
-      }
-    }
+    methods: {}
 }
 </script>
 <style scoped>
-h1 {
-  font-size: 30px;
-}
 </style>

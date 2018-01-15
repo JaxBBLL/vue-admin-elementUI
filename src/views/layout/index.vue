@@ -174,6 +174,6 @@ export default {
 .app-wrap .bread {
     margin-bottom: 10px;
     border: 1px solid #e3e3e3;
-    padding: 10px;
+    padding: 5px 8px;
 }
 </style>
