@@ -15,7 +15,7 @@
       <div class="main-body">
         <el-row v-if="$route.meta.bread" class="bread">
           <el-breadcrumb class="breadcrumb" separator="/">
-            <el-breadcrumb-item :key="key+''" v-for="(item,key) in $route.matched">{{ item.name }}</el-breadcrumb-item>
+            <el-breadcrumb-item :key="key+''" v-for="(item,key) in $route.matched">{{ item.meta.title }}</el-breadcrumb-item>
           </el-breadcrumb>
         </el-row>
         <transition name="fade">

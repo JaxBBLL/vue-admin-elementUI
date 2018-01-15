@@ -30,7 +30,7 @@
             <div class="el-submenu__title"><i :class="item.icon"></i></div>
             <ul class="son-menu">
               <li class="son-menu-item" v-for="child in item.children">
-                <router-link :to="{path:child.path}">{{child.name}}</router-link>
+                <router-link :to="{path:child.path}">{{child.title}}</router-link>
               </li>
             </ul>
           </template>
@@ -42,10 +42,10 @@
       <el-menu unique-opened router v-if="!collapse">
         <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
           <el-submenu :index="index+''" v-if="!item.leaf">
-            <template slot="title"><i :class="item.icon"></i>{{item.name}}</template>
-            <el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden"><router-link :to="{path:child.path}">{{child.name}}</router-link></el-menu-item>
+            <template slot="title"><i :class="item.icon"></i>{{item.title}}</template>
+            <el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden"><router-link :to="{path:child.path}">{{child.title}}</router-link></el-menu-item>
           </el-submenu>
-          <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path"><i :class="item.icon"></i>{{item.children[0].name}}</el-menu-item>
+          <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path"><i :class="item.icon"></i>{{item.children[0].title}}</el-menu-item>
         </template>
       </el-menu>
       <i class="collapse-arrow fa fa-2x" :class="{'fa-arrow-circle-right':collapse,'fa-arrow-circle-left':!collapse}" @click="toggleCollapse"></i>

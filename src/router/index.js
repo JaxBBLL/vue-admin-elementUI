@@ -24,17 +24,18 @@ const registerRoute = (navConfig) => {
     }
     route.push(node)
   })
-
   function buildRoute(nav) {
     return {
       path: nav.path || '',
       name: nav.name,
+      title: nav.title,
       hidden: nav.hidden || false,
       leaf: nav.leaf || false,
       icon: nav.icon || '',
       component: require(`../views${nav.page}`),
       meta: {
-        bread: nav.bread
+        bread: !!nav.bread,
+        title: nav.title
       }
     }
   }

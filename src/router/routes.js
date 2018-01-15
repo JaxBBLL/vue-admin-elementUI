@@ -1,6 +1,7 @@
 const routes = [{
   path: '/',
-  name: '首页',
+  name: '',
+  title: '首页',
   page: '/layout/index',
   bread: false,
   leaf: true,
@@ -8,57 +9,66 @@ const routes = [{
   children: [{
     path: '/home',
     page: '/home',
-    name: '首页',
+    name: 'home',
+    title: '首页',
     bread: false
+  }, {
+    "path": "/404",
+    "page": "/404/404",
+    "name": "404"
   }]
 }, {
   path: '/login',
   page: '/login/login',
-  name: '登录',
+  name: 'login',
+  title: '首页',
   hidden: true
 }, {
   path: '/user',
-  name: '用户',
+  name: 'user',
+  title: '用户',
   page: '/layout/index',
   bread: true,
   icon: 'fa fa-user fa-lg',
   children: [{
     path: '/index',
     page: '/user/index',
-    bread: true,
-    name: '用户列表'
+    name: 'user-index',
+    title: '用户列表',
+    bread: true
   }]
 }, {
   path: '/ui',
-  name: 'UI',
+  title: '分类',
+  name: 'menu',
   page: '/layout/index',
   bread: true,
   icon: 'fa fa-table fa-lg',
   children: [{
-    path: '/table',
-    page: '/ui/table',
-    bread: true,
-    name: '表格'
-  }, {
     path: '/echarts',
     page: '/ui/echarts',
-    bread: true,
-    name: '图表'
+    name: 'ui-echart',
+    title: '图表',
+    bread: true
   }, {
     path: '/form',
     page: '/ui/form',
     bread: true,
-    name: '表单'
+    title: '表单',
+    name: 'ui-form'
   }, {
     path: '/tree',
     page: '/ui/tree',
-    bread: true,
-    name: '树形'
+    name: 'ui-tree',
+    title: '树形',
+    bread: true
   }, {
     path: '/ueditor',
     page: '/ui/ueditor',
-    bread: true,
-    name: 'ueditor'
+    name: 'ui-ueditor',
+    title: '文本编辑',
+    bread: true
   }]
 }]
 export default routes
+
