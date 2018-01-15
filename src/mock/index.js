@@ -12,7 +12,7 @@ var tableData = Mock.mock({
       Mock.mock('@city(true)'),
       Mock.mock('@city(true)')
     ],
-    'status|+1': [
+    'gender|+1': [
       0, 1
     ],
     'date|+1': [

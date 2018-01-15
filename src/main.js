@@ -10,13 +10,16 @@ import 'font-awesome/css/font-awesome.min.css'  //  字体
 import './mock/index.js'
 import App from './App'
 import store from './store'
-import http from './common/http.js'
-import filters from './filters'
+// import http from './common/http.js'
+// import filters from './filters'
 import appconfig from './appconfig.js'
 import echarts from 'echarts'
+import utils from './utils'
+import http from './utils/http.js'
 
 Vue.use(ElementUI)
-Vue.use(filters)
+// Vue.use(filters)
+Vue.use(utils)
 Vue.prototype.$http = http
 Vue.prototype.$echarts = echarts
 Vue.prototype.$appconfig = appconfig

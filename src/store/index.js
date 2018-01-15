@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
+    loading: false,
     collapsed: false,
     user: {}
   },
@@ -15,6 +16,9 @@ const store = new Vuex.Store({
     getUser(state) {
       const user = window.sessionStorage.getItem('user') || '{}'
       state.user = JSON.parse(user)
+    },
+    UPDATE_LOADING(state, status) {
+      state.loading = status
     }
   }
 });

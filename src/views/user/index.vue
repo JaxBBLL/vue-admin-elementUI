@@ -7,6 +7,11 @@
       </el-table-column>
       <el-table-column prop="address" label="地址">
       </el-table-column>
+      <el-table-column prop="address" label="性别">
+        <template slot-scope="scope">
+          <span>{{scope.row.gender | getLabel('gender')}}</span>
+        </template>
+      </el-table-column>
     </el-table>
   </el-row>
 </template>
