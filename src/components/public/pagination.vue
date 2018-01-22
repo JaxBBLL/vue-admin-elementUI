@@ -1,8 +1,6 @@
 <template>
-  <div class="rt">
-    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="table.send.pageNo" :page-sizes="table.pageSelect" :page-size="table.send.pageSize" layout="total, sizes, prev, pager, next, jumper" :total="table.totalCount">
-    </el-pagination>
-  </div>
+  <el-pagination class="fr mt10" @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="table.send.pageNo" :page-sizes="table.pageSelect" :page-size="table.send.pageSize" layout="total, sizes, prev, pager, next, jumper" :total="table.totalCount">
+  </el-pagination>
 </template>
 <script>
 export default {
@@ -10,8 +8,7 @@ export default {
     table: Object
   },
   data() {
-    return {
-    }
+    return {}
   },
   methods: {
     handleSizeChange(val) {

@@ -4,8 +4,36 @@
 @menu-bc: #324157;
 @menu2-bc: #1f2d3d;
 @w: 1200px;
+
 .wh-center(@h) {
   text-align: center;
   height: @h;
   line-height: @h;
+}
+
+.loop-pt( @count )when( @count > 0 ){
+  .pt@{count}{
+      padding-top: ( 1px * @count);
+  }
+  .loop-pt((@count - 10));
+}
+
+.loop-pb( @count )when( @count > 0 ){
+  .pb@{count}{
+      padding-bottom: ( 1px * @count);
+  }
+  .loop-pb((@count - 10));
+}
+
+.loop-mt( @count )when( @count > 0 ){
+  .mt@{count}{
+      margin-top: ( 1px * @count );
+  }
+  .loop-mt((@count - 10));
+}
+.loop-mb( @count )when( @count > 0 ){
+  .mb@{count}{
+      margin-bottom: ( 1px * @count );
+  }
+  .loop-mb((@count - 10));
 }

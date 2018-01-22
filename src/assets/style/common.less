@@ -1,4 +1,10 @@
 @import './var.less';
+
+.loop-pt(50);
+.loop-pb(50);
+.loop-mt(50);
+.loop-mb(50);
+
 .fade-enter-active {
   transition: opacity 0.5s ease-out;
 }
@@ -7,3 +13,32 @@
 .fade-leave-active {
   opacity: 0;
 }
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+
+
+
+
