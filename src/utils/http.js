@@ -18,7 +18,7 @@ axios.defaults.transformRequest = [
   ]
   //  添加一个请求拦截器
 axios.interceptors.request.use(function (config) {
-    commit('UPDATE_LOADING', true)
+    commit('updateLoading', true)
     return config
   }, function (error) {
     return Promise.reject(error)
@@ -32,10 +32,10 @@ axios.interceptors.response.use(res => {
     // })
   }
   // 不显示loading
-  commit('UPDATE_LOADING', false)
+  commit('updateLoading', false)
   return res
 }, err => {
-  commit('UPDATE_LOADING', false)
+  commit('updateLoading', false)
   Message({
     message: '服务端错误',
     type: 'error'
@@ -45,7 +45,7 @@ axios.interceptors.response.use(res => {
 
 const http = {
   get: function (url, params, type) { //  type为true不过滤空字符串的发送
-    if (params === void 0) {
+    if (params === undefined) {
       params = {}
     } else {
       params = objReduce(params, type)
@@ -62,7 +62,7 @@ const http = {
     })
   },
   post: function (url, params, type) { //  type为true不过滤空字符串的发送
-    if (params === void 0) {
+    if (params === undefined) {
       params = {}
     } else {
       params = objReduce(params, type)

@@ -17,7 +17,7 @@ const store = new Vuex.Store({
       const user = window.sessionStorage.getItem('user') || '{}'
       state.user = JSON.parse(user)
     },
-    UPDATE_LOADING(state, status) {
+    updateLoading(state, status) {
       state.loading = status
     }
   }
