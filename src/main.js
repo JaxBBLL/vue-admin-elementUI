@@ -14,6 +14,7 @@ import utils from './utils'
 import http from './utils/http.js'
 import PublicComponents from './components/public'
 import appconfig from './appconfig.js'
+import CONSTANT from './common/constant.js'
 
 // 引入 ECharts 主模块
 var echarts = require('echarts/lib/echarts')
@@ -26,6 +27,7 @@ Vue.use(PublicComponents)
 Vue.prototype.$http = http
 Vue.prototype.$echarts = echarts
 Vue.prototype.$appconfig = appconfig
+Vue.prototype.$CONSTANT = CONSTANT
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({

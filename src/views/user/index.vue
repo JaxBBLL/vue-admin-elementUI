@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-table :data="tableData" style="width: 100%">
+    <el-table :data="table.data" style="width: 100%">
       <el-table-column prop="date" label="日期" width="180">
       </el-table-column>
       <el-table-column prop="name" label="姓名" width="180">
@@ -13,6 +13,7 @@
         </template>
       </el-table-column>
     </el-table>
+    <pagination :table="table"></pagination>
   </el-row>
 </template>
 <script>
@@ -22,7 +23,17 @@ import {
 export default {
   data() {
     return {
-      tableData: []
+      table: {
+        data: [],
+        send: {
+          pageNo: 1,
+          pageSize: this.$CONSTANT.PAGE_SIZE,
+          userId: ''
+        },
+        totalCount: 0,
+        totalPages: 0,
+        pageSelect: this.$CONSTANT.PAGE_SELECT
+      }
     }
   },
   mounted() {
@@ -32,7 +43,7 @@ export default {
     getList() {
       getUserList().then(res => {
         console.log('res', res);
-        this.tableData = res;
+        this.table.data = res;
       })
     }
   }
