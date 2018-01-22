@@ -12,11 +12,17 @@ import App from './App'
 import store from './store'
 import utils from './utils'
 import http from './utils/http.js'
-import echarts from 'echarts'
+import PublicComponents from './components/public'
 import appconfig from './appconfig.js'
 
+// 引入 ECharts 主模块
+var echarts = require('echarts/lib/echarts')
+// 引入 ECharts 其他模块
+
+require('./echarts')
 Vue.use(ElementUI)
 Vue.use(utils)
+Vue.use(PublicComponents)
 Vue.prototype.$http = http
 Vue.prototype.$echarts = echarts
 Vue.prototype.$appconfig = appconfig

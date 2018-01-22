@@ -1,6 +1,7 @@
+var server = '';
 module.exports = {
   httpServer: '',
-  proxyServer: '',
-  captcha: ''
+  proxyServer: server,
+  captcha: server
 }
 
