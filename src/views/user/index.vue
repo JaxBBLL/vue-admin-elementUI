@@ -12,7 +12,6 @@
       <el-table-column prop="address" label="地址">
         <template slot-scope="scope">
           <span>{{scope.row.address}}</span>
-          <se-icon :data="'1,2,5'"></se-icon>
         </template>
       </el-table-column>
       <el-table-column prop="address" label="性别">

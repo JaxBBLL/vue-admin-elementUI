@@ -66,6 +66,12 @@ const routes = [{
     name: 'UiEditor',
     title: '文本编辑',
     bread: true
+  }, {
+    path: '/tree',
+    page: '/ui/tree',
+    name: 'UiTree',
+    title: '树形',
+    bread: true
   }]
 }]
 export default routes
