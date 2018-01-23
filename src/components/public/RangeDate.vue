@@ -3,6 +3,7 @@
 </template>
 <script>
 export default {
+  name: 'RangeDate',
   props: {
     range: {
       type: Number

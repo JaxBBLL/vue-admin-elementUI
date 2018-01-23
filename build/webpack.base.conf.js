@@ -22,11 +22,13 @@ module.exports = {
     UE: "UE"
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', 'less'],
+    extensions: ['.js', '.vue', '.json', 'less', 'jsx'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       'views': resolve('src/views'),
+      'api': resolve('src/api'),
+      'utils': resolve('src/utils'),
       'common': resolve('src/common'),
       'style': resolve('src/assets/style'),
       'image': resolve('src/assets/image')
@@ -49,8 +51,8 @@ module.exports = {
         options: vueLoaderConfig
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
+        test: /\.jsx?$/,
+        loader: ['babel-loader'],
         include: [resolve('src'), resolve('test')]
       },
       {

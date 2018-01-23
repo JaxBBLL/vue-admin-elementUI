@@ -1,3 +1,7 @@
+/**
+ * 组件的名称使用大驼峰命名法
+ * name: 'UserIndex'
+ */
 const routes = [{
   path: '/',
   name: '',
@@ -9,7 +13,7 @@ const routes = [{
   children: [{
     path: '/home',
     page: '/home',
-    name: 'home',
+    name: 'Home',
     title: '首页',
     bread: false
   }, {
@@ -20,12 +24,12 @@ const routes = [{
 }, {
   path: '/login',
   page: '/login/login',
-  name: 'login',
+  name: 'Login',
   title: '首页',
   hidden: true
 }, {
   path: '/user',
-  name: 'user',
+  name: 'User',
   title: '用户',
   page: '/layout/index',
   bread: true,
@@ -33,21 +37,21 @@ const routes = [{
   children: [{
     path: '/index',
     page: '/user/index',
-    name: 'user-index',
+    name: 'UserIndex',
     title: '用户列表',
     bread: true
   }]
 }, {
   path: '/ui',
   title: '分类',
-  name: 'menu',
+  name: 'Menu',
   page: '/layout/index',
   bread: true,
   icon: 'fa fa-table fa-lg',
   children: [{
     path: '/echarts',
     page: '/ui/echarts',
-    name: 'ui-echart',
+    name: 'UiEchart',
     title: '图表',
     bread: true
   }, {
@@ -55,17 +59,11 @@ const routes = [{
     page: '/ui/form',
     bread: true,
     title: '表单',
-    name: 'ui-form'
-  }, {
-    path: '/tree',
-    page: '/ui/tree',
-    name: 'ui-tree',
-    title: '树形',
-    bread: true
+    name: 'UiForm'
   }, {
     path: '/ueditor',
     page: '/ui/ueditor',
-    name: 'ui-ueditor',
+    name: 'UiEditor',
     title: '文本编辑',
     bread: true
   }]
