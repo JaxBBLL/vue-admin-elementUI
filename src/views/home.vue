@@ -2,21 +2,22 @@
   <el-row>
     <test></test>
     <el-row>
-      <el-button type="primary">按钮...</el-button>
+      <el-tag type="primary" closable color="#ab5" hit @close="closeHandle" v-if="isShow">tag</el-tag>
     </el-row>
+
   </el-row>
 </template>
 <script>
 export default {
   data() {
-    return {}
+    return {
+      isShow: true
+    }
   },
-  methods: {},
-  render(createElement) {
-    return createElement(
-      'h' + this.level, // tag name 标签名称
-      this.$slots.default // 子组件中的阵列
-    )
+  methods: {
+    closeHandle() {
+      this.isShow = false;
+    }
   }
 }
 </script>
