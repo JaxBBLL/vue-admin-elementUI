@@ -14,7 +14,7 @@
     "axios": "^0.17.1",
     "babel-polyfill": "^6.23.0",
     "echarts": "^3.8.5",
-    "element-ui": "^1.4.12",
+    "element-ui": "^2.4.5",
     "font-awesome": "^4.7.0",
     "mockjs": "^1.0.1-beta3",
     "vue": "^2.5.13",
