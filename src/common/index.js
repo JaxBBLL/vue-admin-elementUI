@@ -6,7 +6,7 @@ import {
   dateRange,
   currencyFmt,
   deepCopy
-} from './methods.js'
+} from './util.js'
 var output = {};
 output.install = function (Vue) {
   Vue.prototype.$getWord = searchDictionary;

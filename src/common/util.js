@@ -1,4 +1,4 @@
-import dictionary from '../common/dictionary.json'
+import dictionary from './dictionary.json'
 
 export function searchDictionary(value, name) {
   if (arguments.length === 1) return dictionary[value].options || []; //  如果参数只有一个，获取对应的arr
@@ -24,28 +24,47 @@ export function seeLabel(value, arr) {
   return result;
 }
 
-export function dateFmt(d, format) {
-  if (!d) return '';
-  const date = new Date(d);
-  const paddNum = function (num) {
-    num += ''
-    return num.replace(/^(\d)$/, '0$1')
+export const dateFmt = function(date, fmt = 'YYYY-MM-DD HH:mm:ss') {
+  if (!date) {
+    return ''
   }
-  const cfg = {
-    yyyy: date.getFullYear(),
-    yy: date.getFullYear().toString().substring(2),
-    M: date.getMonth() + 1,
-    MM: paddNum(date.getMonth() + 1),
-    d: date.getDate(),
-    dd: paddNum(date.getDate()),
-    hh: paddNum(date.getHours()),
-    mm: paddNum(date.getMinutes()),
-    ss: paddNum(date.getSeconds())
+  if (typeof date === 'string') {
+    date = new Date(date.replace(/-/g, '/'))
   }
-  format || (format = 'yyyy-MM-dd hh:mm:ss')
-  return format.replace(/([a-z])(\1)*/ig, function (m) {
-    return cfg[m]
-  })
+  if (typeof date === 'number') {
+    date = new Date(date)
+  }
+  var o = {
+    'M+': date.getMonth() + 1,
+    'D+': date.getDate(),
+    'h+': date.getHours() % 12 === 0 ? 12 : date.getHours() % 12,
+    'H+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds(),
+    'q+': Math.floor((date.getMonth() + 3) / 3),
+    'S': date.getMilliseconds()
+  }
+  var week = {
+    '0': '\u65e5',
+    '1': '\u4e00',
+    '2': '\u4e8c',
+    '3': '\u4e09',
+    '4': '\u56db',
+    '5': '\u4e94',
+    '6': '\u516d'
+  }
+  if (/(Y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
+  }
+  if (/(E+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? '\u661f\u671f' : '\u5468') : '') + week[date.getDay() + ''])
+  }
+  for (var k in o) {
+    if (new RegExp('(' + k + ')').test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
+    }
+  }
+  return fmt
 }
 
 export function currencyFmt(value, n) {
@@ -55,7 +74,7 @@ export function currencyFmt(value, n) {
   value = parseFloat((value + '').replace(/[^\d\.-]/g, '')).toFixed(n) + '';
   const l = value.split('.')[0];
   const r = value.split('.')[1];
-  return '\u00a5' + ' ' + l + '.' + r;
+  return '\u00a5' + l + '.' + r;
 }
 
 export function toJSON(val) {
@@ -127,9 +146,4 @@ export function objReduce(data, type) {
     }
   }
   return o
-}
-
-export function selector(sel) {
-  const ele = document.querySelectorAll(sel);
-  return ele.length > 1 ? ele : (ele.length === 1 ? ele[0] : null)
 }
