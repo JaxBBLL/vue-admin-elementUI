@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="main-body">
-      <el-row v-if="$route.meta.bread" class="bread">
+      <el-row v-if="$route.meta.bread" class="g-bread">
         <el-breadcrumb class="breadcrumb" separator="/">
           <el-breadcrumb-item :key="key+''" v-for="(item,key) in $route.matched">{{ item.meta.title }}</el-breadcrumb-item>
         </el-breadcrumb>
