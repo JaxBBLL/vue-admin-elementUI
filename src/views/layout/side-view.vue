@@ -6,7 +6,7 @@
     <div class="menu-wrapper">
       <el-menu router class="el-menu-vertical" :collapse="collapse" background-color="#324157" text-color="#fff">
         <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
-          <el-submenu :index="index+''" v-if="!item.leaf">
+          <el-submenu :index="index+''" v-if="!item.leaf" :key="index">
             <template slot="title">
               <i :class="item.icon"></i>
               <span>{{item.title}}</span>
@@ -16,7 +16,7 @@
               <span>{{child.title}}</span>
             </el-menu-item>
           </el-submenu>
-          <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path">
+          <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path" :key="item.children[0].path">
             <i :class="item.icon"></i>
             <span slot="title">{{item.children[0].title}}</span>
           </el-menu-item>
@@ -29,25 +29,25 @@
 <script>
 export default {
   data() {
-      return {
-        title: '管理后台'
-      }
-    },
-    computed: {
-      collapse() {
-        return this.$store.state.collapsed
-      }
-    },
-    methods: {
-      toggleCollapse() {
-        this.$store.commit('toggleCollapse')
-        if (!this.collapse) {
-          this.title = '管理后台'
-        } else {
-          this.title = '管'
-        }
+    return {
+      title: '管理后台'
+    }
+  },
+  computed: {
+    collapse() {
+      return this.$store.state.collapsed
+    }
+  },
+  methods: {
+    toggleCollapse() {
+      this.$store.commit('toggleCollapse')
+      if (!this.collapse) {
+        this.title = '管理后台'
+      } else {
+        this.title = '管'
       }
     }
+  }
 }
 </script>
 <style scoped>

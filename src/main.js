@@ -27,12 +27,10 @@ Vue.prototype.$http = http
 Vue.prototype.$echarts = echarts
 Vue.prototype.$appconfig = appconfig
 Vue.prototype.$CONSTANT = CONSTANT
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
   store,
-  template: '<App/>',
-  components: { App }
-})
+  render: h => h(App)
+}).$mount('#app')

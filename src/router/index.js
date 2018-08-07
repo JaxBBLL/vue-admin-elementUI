@@ -7,13 +7,6 @@ Vue.use(Router)
 
 const registerRoute = (navConfig) => {
   const route = []
-  route.push({
-    path: '*',
-    hidden: true,
-    redirect: {
-      path: '/404'
-    }
-  })
   navConfig.forEach((nav) => {
     var node = buildRoute(nav)
     if (nav.children) {
@@ -24,6 +17,13 @@ const registerRoute = (navConfig) => {
     }
     route.push(node)
   })
+  route.push({
+    path: '*',
+    hidden: true,
+    redirect: {
+      path: '/404'
+    }
+  })
   function buildRoute(nav) {
     return {
       path: nav.path || '',
@@ -32,7 +32,7 @@ const registerRoute = (navConfig) => {
       hidden: nav.hidden || false,
       leaf: nav.leaf || false,
       icon: nav.icon || '',
-      component: require(`../views${nav.page}`),
+      component: () => import(`../views${nav.page}`),
       meta: {
         bread: !!nav.bread,
         title: nav.title

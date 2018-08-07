@@ -12,7 +12,7 @@ const options = {
   withCredentials: true
 }
 
-const axios = Axios.create({ ...options })
+const axios = Axios.create(options)
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 axios.defaults.transformRequest = [function (data) {

@@ -4,7 +4,6 @@
     <el-row>
       <el-tag type="primary" closable color="#ab5" hit @close="closeHandle" v-if="isShow">tag</el-tag>
     </el-row>
-
   </el-row>
 </template>
 <script>
