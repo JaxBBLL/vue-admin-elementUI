@@ -5,9 +5,14 @@ import { Message } from 'element-ui'
 import appconfig from '@/appconfig.js'
 
 const commit = store.commit || store.dispatch
-const base = appconfig.apiBase
 
-const axios = Axios.create({ baseURL: base, timeout: 5000, withCredentials: true })
+const options = {
+  baseURL: appconfig.apiBase,
+  timeout: 5000,
+  withCredentials: true
+}
+
+const axios = Axios.create({ ...options })
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 axios.defaults.transformRequest = [function (data) {
