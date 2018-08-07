@@ -1,5 +1,5 @@
 <template>
-	<el-form ref="form" :model="form" label-width="80px">
+  <el-form ref="form" :model="form" label-width="80px">
   <el-form-item label="活动名称">
     <el-input v-model="form.name"></el-input>
   </el-form-item>
@@ -19,7 +19,7 @@
     </el-col>
   </el-form-item>
   <el-form-item label="即时配送">
-    <el-switch on-text="" off-text="" v-model="form.delivery"></el-switch>
+    <el-switch v-model="form.delivery"></el-switch>
   </el-form-item>
   <el-form-item label="活动性质">
     <el-checkbox-group v-model="form.type">
