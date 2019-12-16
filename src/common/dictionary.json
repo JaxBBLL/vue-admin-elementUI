@@ -1,0 +1,90 @@
+{
+  "serviceLevel": {
+    "description": "全部服务等级",
+    "options": [
+      {
+        "label": "商易通高级会员",
+        "value": 4
+      },
+      {
+        "label": "商易通标准会员",
+        "value": 3
+      },
+      {
+        "label": "E站通会员",
+        "value": 2
+      }
+    ]
+  },
+  "customerType": {
+    "description": "客户类型",
+    "options": [
+      {
+        "label": "全部",
+        "value": 0
+      },
+      {
+        "label": "直销客户",
+        "value": 1
+      },
+      {
+        "label": "代理商客户",
+        "value": 2
+      },
+      {
+        "label": "重点客户",
+        "value": 3
+      }
+    ]
+  },
+  "status": {
+    "description": "当前状态",
+    "options": [
+      {
+        "label": "未完成",
+        "value": 0
+      },
+      {
+        "label": "已完成",
+        "value": 1
+      }
+    ]
+  },
+  "clickProperty": {
+    "description": "点击参数",
+    "options": [
+      {
+        "label": "企业认证",
+        "value": 1
+      },
+      {
+        "label": "绑定微信",
+        "value": 12
+      },
+      {
+        "label": "百度联盟",
+        "value": 3
+      },
+      {
+        "label": "企业名片 PC端",
+        "value": 4
+      },
+      {
+        "label": "企业名片 移动端",
+        "value": 5
+      },
+      {
+        "label": "百度认证",
+        "value": 6
+      },
+      {
+        "label": "爱采购APP安装",
+        "value": 7
+      },
+      {
+        "label": "上周发布商品数≥25",
+        "value": 8
+      }
+    ]
+  }
+}
