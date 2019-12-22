@@ -12,7 +12,7 @@
     ></router-link>
     <div class="header-content"></div>
     <div class="header-user">
-      <a class="link" :href="$CONSTANT.HOST + '/admin/logout'"><i class="el-icon-switch-button"></i> 注销</a>
+      <el-button type="text" class="link"><i class="el-icon-switch-button"></i> 注销</el-button>
     </div>
   </div>
 </template>
@@ -54,7 +54,7 @@ export default {
   }
   .header-user {
     float: left;
-    margin-right: 30px;
+    margin-right: 15px;
     .link,
     .el-button--text {
       color: #fff;

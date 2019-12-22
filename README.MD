@@ -62,6 +62,7 @@ npm run prod
 │   ├── App.vue                       // 根组件
 │   │── main.js                       // 入口文件
 ├── .browserslistrc                   // js和css编译时目标浏览器
+├── .env.dev                          // 开发环境变量
 ├── .env.prod                         // 线上环境变量
 ├── .env.qa                           // 测试环境变量
 ├── .env.uat                          // 验收（预发）环境变量

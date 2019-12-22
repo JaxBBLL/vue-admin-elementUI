@@ -1,13 +1,13 @@
 const path = require('path');
 const PORT = 9002;
-const PROXY_SERVER = 'http://admin.test.kucdn.cn';
+const PROXY_SERVER = '';
 
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/admin/' : '/',
   lintOnSave: true,
   chainWebpack: config => {
     config.showEslintErrorsInOverlay = true;
@@ -46,15 +46,15 @@ module.exports = {
         require('child_process').exec(`start http://localhost:${PORT}`);
       }, 2000);
     },
-    proxy: {
-      '/proxyApi': {
-        target: PROXY_SERVER,
-        changeOrigin: true,
-        pathRewrite: {
-          '^/proxyApi': '/'
-        }
-      }
-    }
+    // proxy: {
+    //   '/proxyApi': {
+    //     target: PROXY_SERVER,
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/proxyApi': '/'
+    //     }
+    //   }
+    // }
   },
   // Vue-ECharts 默认在 webpack 环境下会引入未编译的源码版本，
   // 如果你正在使用官方的 Vue CLI 来创建项目，

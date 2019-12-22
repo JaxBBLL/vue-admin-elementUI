@@ -37,7 +37,7 @@ function buildRoute(item, isDynamic = false) {
     path: item.path || '',
     name: name,
     title: item.title,
-    hidden: item.type == 2,
+    hidden: item.type === 2,
     leaf: item.leaf || false, // 目录是否显示为页面，true时会把子目录第一个设为导航。如：home页面
     icon: item.icon || '', // 目录图标，使用font-awesome库
     component,
@@ -45,7 +45,7 @@ function buildRoute(item, isDynamic = false) {
     meta: {
       noBread: !!item.noBread, // 不显示面包屑
       title: item.title,
-      noCache: item.noCache, // 不缓存
+      noCache: item.type === 2, // 一般内页不缓存
       noTabs: item.noTabs || false // 是否显示tabs栏
     }
   };

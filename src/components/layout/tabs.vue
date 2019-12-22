@@ -4,7 +4,7 @@
       <router-link
         v-for="tag in visitedViews"
         :to="{ path: tag.path, query: tag.query, params: tag.params }"
-        :key="tag.realPath"
+        :key="tag.name"
       >
         <el-tag
           :closable="closable"
@@ -78,7 +78,6 @@ export default {
         path: this.$route.path,
         query: this.$route.query,
         params: this.$route.params,
-        realPath: window.location.hash.slice(1),
         meta: this.$route.meta
       };
     },
