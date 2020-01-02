@@ -1,13 +1,13 @@
 const path = require('path');
 const PORT = 9002;
-const PROXY_SERVER = '';
+// const PROXY_SERVER = '';
 
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/admin/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue-admin-elementUI/' : '/',
   lintOnSave: true,
   chainWebpack: config => {
     config.showEslintErrorsInOverlay = true;
@@ -45,7 +45,8 @@ module.exports = {
       setTimeout(() => {
         require('child_process').exec(`start http://localhost:${PORT}`);
       }, 2000);
-    },
+    }
+    // ,
     // proxy: {
     //   '/proxyApi': {
     //     target: PROXY_SERVER,
