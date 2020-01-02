@@ -2,7 +2,7 @@
 
 ## 预览
 
-访问地址：https://jaxbbll.github.io/admin/#/login
+访问地址：https://jaxbbll.github.io/vue-admin-elementUI/#/login
 
 ![image](https://github.com/JaxBBLL/vue-admin-elementUI/raw/master/preview/1.gif)
 
