@@ -29,6 +29,11 @@ module.exports = {
       config.optimization.minimizer[0].options.terserOptions.compress.pure_funcs = [
         'console.log'
       ];
+      config.optimization.splitChunks.cacheGroups.commons = {
+        test: /[\\/]node_modules[\\/](element-ui)[\\/]/,
+        name: 'element-ui',
+        chunks: 'all'
+      };
     }
   },
   pluginOptions: {},
