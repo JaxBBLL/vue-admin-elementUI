@@ -22,7 +22,9 @@ function buildRoute(item, isDynamic = false) {
       }
     } else {
       // 页面，使用对应路径的组件
-      component = _import(path);
+      try {
+        component = _import(path) || null;
+      } catch (e) {}
     }
     if (path) {
       name = path.replace(/\/(.)/g, function(match, p1) {
