@@ -9,6 +9,13 @@
       @focus="onEditorFocus($event)"
       @ready="onEditorReady($event)"
     ></quill-editor>
+    <vue-neditor-wrap
+      style="margin-top: 20px"
+      v-model="neditorContent"
+      :config="myConfig"
+      :destroy="false"
+      @ready="ready"
+    ></vue-neditor-wrap>
   </div>
 </template>
 <script>
@@ -91,19 +98,23 @@ export default {
             ['link', 'image', 'video']
           ]
         }
-      }
+      },
+      myConfig: {
+        // 如果需要上传功能,找后端小伙伴要服务器接口地址
+        serverUrl: '/api/web/upload/ueditor',
+        // 你的UEditor资源存放的路径,相对于打包后的index.html
+        UEDITOR_HOME_URL: '/NEditor/',
+        // 编辑器不自动被内容撑高
+        autoHeightEnabled: false,
+        // 初始容器高度
+        initialFrameHeight: 240,
+        // 初始容器宽度
+        initialFrameWidth: '100%',
+        // 关闭自动保存
+        enableAutoSave: false
+      },
+      neditorContent: '<h1>neditor</h1>'
     };
-  },
-  methods: {
-    onEditorBlur(editor) {
-      // console.log('editor blur!', editor)
-    },
-    onEditorFocus(editor) {
-      // console.log('editor focus!', editor)
-    },
-    onEditorReady(editor) {
-      // console.log('editor ready!', editor)
-    }
   },
   computed: {
     editor() {
@@ -120,6 +131,18 @@ export default {
           <span style="background-color: #38f; color: rgb(255, 255, 255);">this is a demo</span>
         </h3>
         `;
+  },
+  methods: {
+    onEditorBlur(editor) {
+      // console.log('editor blur!', editor)
+    },
+    onEditorFocus(editor) {
+      // console.log('editor focus!', editor)
+    },
+    onEditorReady(editor) {
+      // console.log('editor ready!', editor)
+    },
+    ready() {}
   }
 };
 </script>

@@ -8206,6 +8206,11 @@ vue-loader@^15.7.0:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-neditor-wrap@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npm.taobao.org/vue-neditor-wrap/download/vue-neditor-wrap-1.0.4.tgz#0e589a57aa76278f19921d074f2ccc0898b348ae"
+  integrity sha1-DliaV6p2J48Zkh0HTyzMCJizSK4=
+
 vue-quill-editor@^3.0.6:
   version "3.0.6"
   resolved "https://registry.npm.taobao.org/vue-quill-editor/download/vue-quill-editor-3.0.6.tgz#1f85646211d68a31a80a72cb7f45bb2f119bc8fb"
