@@ -12,7 +12,7 @@
     ></router-link>
     <div class="header-content"></div>
     <div class="header-user">
-      <el-button type="text" class="link"><i class="el-icon-switch-button"></i> 注销</el-button>
+      <el-button type="text" class="link">{{$store.state.user.name}}<i class="el-icon-switch-button"></i> 注销</el-button>
     </div>
   </div>
 </template>

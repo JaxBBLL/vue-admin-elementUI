@@ -8,7 +8,7 @@ const TAB_MAX = 10;
 const store = new Vuex.Store({
   state: {
     collapsed: false,
-    user: {},
+    user: JSON.parse(window.sessionStorage.getItem('user') || '{}'),
     routes: [],
     visitedViews: JSON.parse(
       window.sessionStorage.getItem('visitedViews') || '[]'
@@ -18,9 +18,9 @@ const store = new Vuex.Store({
     toggleCollapse(state) {
       state.collapsed = !state.collapsed;
     },
-    getUser(state) {
-      const user = window.sessionStorage.getItem('user') || '{}';
-      state.user = JSON.parse(user);
+    setUser(state, user) {
+      window.sessionStorage.setItem('user', JSON.stringify(user));
+      state.user = user;
     },
     updateRoutes(state, routes) {
       state.routes = routes;

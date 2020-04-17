@@ -145,14 +145,13 @@ export default {
       if (this.form.rememberMe) {
         window.localStorage.setItem('userAccount', JSON.stringify(userAccount));
       }
-      this.$store.commit('UPDATE_USER', '{ "name": "peter" }');
+      this.$store.commit('setUser', { "name": "peter" });
       this.$router.push('/');
       loginApi(this.form)
         .then(res => {
           this.logining = false;
           if (res.success) {
-            var user = JSON.stringify(res.data);
-            this.$store.commit('UPDATE_USER', user);
+            this.$store.commit('setUser', res.data);
             this.$router.push('/');
           } else {
             this.$message.error(res.message);
