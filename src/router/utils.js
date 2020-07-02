@@ -67,7 +67,7 @@ export function compilerRoutes(treeList, isDynamic = false) {
 }
 
 // 开发环境不使用懒加载, 因为懒加载页面太多的话会造成webpack热更新太慢, 所以只有生产环境使用懒加载
-export function _import(url) {
+function _import(url) {
   if (process.env.NODE_ENV === 'development') {
     return require(`@/views${url}.vue`).default;
   } else {

@@ -31,9 +31,7 @@ export default {
     Tabs,
     HeaderView
   },
-  mounted() {
-    this.$store.commit('getUser');
-  },
+  mounted() {},
   computed: {
     collapse() {
       return this.$store.state.collapsed;

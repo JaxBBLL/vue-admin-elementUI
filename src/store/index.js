@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import base from './base';
+import base from './base';
 
 Vue.use(Vuex);
 
@@ -86,7 +86,7 @@ const store = new Vuex.Store({
     }
   },
   modules: {
-    // base
+    base
   }
 });
 

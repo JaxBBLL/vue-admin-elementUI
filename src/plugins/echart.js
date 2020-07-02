@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */ 
 import Vue from 'vue';
 import echarts from 'echarts/lib/echarts'; // 引入 ECharts 主模块
 import ECharts from 'vue-echarts';
