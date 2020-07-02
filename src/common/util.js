@@ -223,3 +223,12 @@ export function localNumber(num) {
   }
   return c;
 }
+
+export async function errorCaptured(asyncFunc) {
+  try {
+    let res = await asyncFunc();
+    return [res, null];
+  } catch (e) {
+    return [null, e];
+  }
+}

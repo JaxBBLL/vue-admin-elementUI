@@ -11,7 +11,8 @@ import {
   deepCopy,
   isAuth,
   valideForm,
-  localNumber
+  localNumber,
+  errorCaptured
 } from '@common/util.js';
 
 Vue.prototype.$dict = searchDictionary;
@@ -22,6 +23,7 @@ Vue.prototype.$getRecentDate = getRecentDate;
 Vue.prototype.$isAuth = isAuth;
 Vue.prototype.$deepCopy = deepCopy;
 Vue.prototype.$valideForm = valideForm;
+Vue.prototype.$errorCaptured = errorCaptured;
 Vue.prototype.$CONSTANT = constant;
 
 Vue.filter('getLabel', searchDictionary);

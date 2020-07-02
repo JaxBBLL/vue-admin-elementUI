@@ -128,7 +128,7 @@ export default {
     this.$store.dispatch('clearVisitedViews');
   },
   methods: {
-    submitForm(formName) {
+    async submitForm(formName) {
       let valid = false;
       this.$refs[formName].validate(v => {
         valid = v;
@@ -145,22 +145,19 @@ export default {
       if (this.form.rememberMe) {
         window.localStorage.setItem('userAccount', JSON.stringify(userAccount));
       }
-      this.$store.commit('setUser', { "name": "peter" });
+      let [res] = await loginApi(this.form);
+      if (res) {
+        if (res.success) {
+          this.$store.commit('setUser', res.data);
+          this.$router.push('/');
+        } else {
+          this.$message.error(res.message);
+          this.captchaImgRefresh();
+        }
+      }
+      this.logining = false;
+      this.$store.commit('setUser', { name: 'peter' });
       this.$router.push('/');
-      loginApi(this.form)
-        .then(res => {
-          this.logining = false;
-          if (res.success) {
-            this.$store.commit('setUser', res.data);
-            this.$router.push('/');
-          } else {
-            this.$message.error(res.message);
-            this.captchaImgRefresh();
-          }
-        })
-        .catch(() => {
-          this.logining = false;
-        });
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
