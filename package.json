@@ -7,6 +7,7 @@
     "qa": "vue-cli-service build --mode qa",
     "uat": "vue-cli-service build --mode uat",
     "prod": "vue-cli-service build --mode prod",
+    "fix": "eslint --fix --ext .js --ext .vue ./src",
     "lint": "vue-cli-service lint"
   },
   "keywords": [
@@ -26,30 +27,30 @@
     "vue-echarts": "^4.1.0",
     "vue-neditor-wrap": "^1.0.4",
     "vue-quill-editor": "^3.0.6",
-    "vue-router": "3.1.6",
+    "vue-router": "3.4.0",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-plugin-router": "~4.4.0",
-    "@vue/cli-plugin-vuex": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-plugin-babel": "~4.4.6",
+    "@vue/cli-plugin-eslint": "~4.4.6",
+    "@vue/cli-plugin-router": "~4.4.6",
+    "@vue/cli-plugin-vuex": "~4.4.6",
+    "@vue/cli-service": "~4.4.6",
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint": "^7.6.0",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.2",
-    "less": "^3.0.4",
-    "less-loader": "^5.0.0",
+    "less": "^3.12.2",
+    "less-loader": "^6.2.0",
     "vue-template-compiler": "^2.6.11"
   },
   "engines": {
-    "node": ">= 8.11.0",
-    "npm": ">= 5.6.0",
+    "node": ">= 8.17.0",
+    "npm": ">= 6.13.4",
     "yarn": ">=1.9.4"
   }
 }

@@ -10,7 +10,7 @@ function buildRoute(item, isDynamic = false) {
   let path = item.path.replace(/\/:\w+/gi, '');
   // 是否动态目录菜单
   if (isDynamic) {
-    // item.type -> 0：目录；1：菜单；2：内部菜单
+    // item.type -> 0：目录；1：菜单；2：内部菜单；3: iframe页面
     if (item.type === 0) {
       // 是目录
       if (item.pid) {
@@ -20,11 +20,13 @@ function buildRoute(item, isDynamic = false) {
         // 顶级目录，使用Layout组件
         component = Layout;
       }
-    } else {
+    } else if (item.type == 1 || item.type == 2) {
       // 页面，使用对应路径的组件
       try {
         component = _import(path) || null;
       } catch (e) {}
+    } else if (item.type == 3) {
+      component = Empty;
     }
     if (path) {
       name = path.replace(/\/(.)/g, function(match, p1) {
@@ -44,7 +46,10 @@ function buildRoute(item, isDynamic = false) {
     icon: item.icon || '', // 目录图标，使用font-awesome库
     component,
     redirect: item.redirect,
+    type: item.type,
     meta: {
+      url: item.url,
+      type: item.type,
       noBread: !!item.noBread, // 不显示面包屑
       title: item.title,
       noCache: item.type === 2, // 一般内页不缓存
@@ -71,6 +76,6 @@ function _import(url) {
   if (process.env.NODE_ENV === 'development') {
     return require(`@/views${url}.vue`).default;
   } else {
-    return () => import(`@/views${url}.vue`);
+    return () => import(/* webpackChunkName: "[index]" */ `@/views${url}.vue`);
   }
 }

@@ -3,7 +3,13 @@
     <HeaderView />
     <Tabs v-show="isShowTabs && !$route.meta.noTabs"></Tabs>
     <div class="content-wrapper">
-      <div class="content">
+      <div class="content" style="height:100%" v-if="$route.meta.type == 3">
+        <iframe
+          style="width:100%;height:100%;border:none"
+          :src="$route.meta.url"
+        ></iframe>
+      </div>
+      <div class="content" v-else>
         <transition name="fade">
           <keep-alive :include="cacheNames">
             <router-view

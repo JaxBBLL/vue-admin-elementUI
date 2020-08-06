@@ -17,6 +17,15 @@ export default [
         type: 1
       },
       {
+        path: '/menu/baidu',
+        name: 'MenuBaidu',
+        title: 'iframe baidu',
+        url: 'http://www.baidu.com',
+        pid: 1,
+        id: 10,
+        type: 3
+      },
+      {
         path: '/menu/form',
         title: '表单',
         name: 'MenuForm',
