@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- quill-editor -->
-    <quill-editor
+    <!-- <quill-editor
       ref="myTextEditor"
       v-model="content"
       :options="editorOption"
@@ -15,12 +15,15 @@
       :config="myConfig"
       :destroy="false"
       @ready="ready"
-    ></vue-neditor-wrap>
+    ></vue-neditor-wrap> -->
+    <Tinymce v-model="TinymceContent" />
   </div>
 </template>
 <script>
+import Tinymce from '@/components/Tinymce';
 export default {
   name: 'MenuEditor',
+  components: { Tinymce },
   data() {
     return {
       content: `<h2 class="ql-align-center"><span class="ql-font-serif">Text content loading..</span></h2>`,
@@ -113,7 +116,8 @@ export default {
         // 关闭自动保存
         enableAutoSave: false
       },
-      neditorContent: '<h1>neditor</h1>'
+      neditorContent: '<h1>neditor</h1>',
+      TinymceContent: '<h1>TinymceContent</h1>'
     };
   },
   computed: {
